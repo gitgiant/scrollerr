@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <label class="field" for="mode">
+      <span>Scroll when</span>
+      <select id="mode">
+        <option value="timer">timer ends</option>
+        <option value="media">clip ends</option>
+      </select>
+    </label>
+
+    <label class="field" id="seconds-field" for="seconds">
+      <span id="seconds-label">Every</span>
+      <input id="seconds" type="number" min="1" max="3600" step="1" />
+      <span>seconds</span>
+    </label>
+
+    <button id="toggle" type="button">Start</button>
+
+    <p id="status" class="status"></p>
+    <p id="detect" class="detect" hidden></p>
+    <p id="error" class="error" hidden></p>
+    <p class="hint">Shortcut: Alt+Shift+S</p>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

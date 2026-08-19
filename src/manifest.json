@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "Drip Scroller",
+  "version": "1.0.0",
+  "description": "Scrolls the current tab down by a wheel notch on a timer. Per-tab, pauses when you touch it.",
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "drip-scroller@local",
+      "strict_min_version": "115.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+
+  "permissions": ["activeTab", "scripting", "storage"],
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "action": {
+    "default_title": "Drip Scroller",
+    "default_popup": "popup.html",
+    "default_icon": "icons/icon.svg"
+  },
+
+  "icons": {
+    "48": "icons/icon.svg",
+    "96": "icons/icon.svg"
+  },
+
+  "commands": {
+    "toggle-drip": {
+      "suggested_key": {
+        "default": "Alt+Shift+S"
+      },
+      "description": "Start/stop drip scrolling on the current tab"
+    }
+  },
+
+  "incognito": "spanning"
+}

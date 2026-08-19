@@ -1,0 +1,14 @@
+{
+  "name": "drip-scroller",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Firefox extension that drip-scrolls the current tab on a timer.",
+  "scripts": {
+    "dev": "web-ext run --source-dir=src",
+    "lint": "web-ext lint --source-dir=src",
+    "build": "web-ext build --source-dir=src --artifacts-dir=dist --overwrite-dest"
+  },
+  "devDependencies": {
+    "web-ext": "^8.3.0"
+  }
+}

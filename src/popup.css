@@ -1,0 +1,104 @@
+:root {
+  color-scheme: light dark;
+  --fg: #1f2328;
+  --muted: #6b7280;
+  --accent: #16a34a;
+  --danger: #b42318;
+  --border: #d0d5dd;
+  --surface: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fg: #e6e6e6;
+    --muted: #9aa0a6;
+    --border: #3a3f45;
+    --surface: #202124;
+  }
+}
+
+body {
+  width: 230px;
+  margin: 0;
+  padding: 14px;
+  background: var(--surface);
+  color: var(--fg);
+  font: 13px/1.45 system-ui, -apple-system, sans-serif;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  white-space: nowrap;
+}
+
+.field.disabled {
+  opacity: 0.45;
+}
+
+select {
+  flex: 1;
+  padding: 4px 6px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+input[type='number'] {
+  width: 58px;
+  padding: 4px 6px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: right;
+}
+
+button {
+  width: 100%;
+  margin-top: 12px;
+  padding: 7px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button.running {
+  background: var(--danger);
+}
+
+.status,
+.detect,
+.error,
+.hint {
+  margin: 9px 0 0;
+}
+
+.detect {
+  color: var(--fg);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  word-break: break-word;
+}
+
+.status {
+  color: var(--muted);
+}
+
+.error {
+  color: var(--danger);
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 11px;
+}
