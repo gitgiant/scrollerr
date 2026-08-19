@@ -1,7 +1,7 @@
 const ARMED_KEY = 'armedTabs';
 const SECONDS_KEY = 'seconds';
 const MODE_KEY = 'mode';
-const DEFAULT_MODE = 'timer';
+const DEFAULT_MODE = 'media';
 const DEFAULT_SECONDS = 10;
 const MIN_SECONDS = 1;
 const MAX_SECONDS = 3600;
@@ -30,7 +30,8 @@ async function getSeconds() {
 
 async function getMode() {
   const stored = await browser.storage.local.get(MODE_KEY);
-  return stored[MODE_KEY] === 'media' ? 'media' : DEFAULT_MODE;
+  const mode = stored[MODE_KEY];
+  return mode === 'media' || mode === 'timer' ? mode : DEFAULT_MODE;
 }
 
 // Armed state is mirrored into storage.session because an MV3 event page can be
@@ -221,7 +222,7 @@ browser.runtime.onMessage.addListener((msg, sender) => {
 
   if (msg.type === 'setMode') {
     return (async () => {
-      const mode = msg.mode === 'media' ? 'media' : DEFAULT_MODE;
+      const mode = msg.mode === 'media' || msg.mode === 'timer' ? msg.mode : DEFAULT_MODE;
       await browser.storage.local.set({ [MODE_KEY]: mode });
       const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
       if (tab && (await isArmed(tab.id))) {

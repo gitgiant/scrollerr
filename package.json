@@ -4,7 +4,7 @@
   "private": true,
   "description": "Firefox extension that drip-scrolls the current tab on a timer.",
   "scripts": {
-    "dev": "web-ext run --source-dir=src",
+    "dev": "node scripts/setup-dev-profile.js && web-ext run --source-dir=src --firefox-profile=.dev-profile --profile-create-if-missing --keep-profile-changes",
     "lint": "web-ext lint --source-dir=src",
     "build": "web-ext build --source-dir=src --artifacts-dir=dist --overwrite-dest"
   },

@@ -13,7 +13,7 @@
   const RECHECK_MS = 1000;
 
   let armed = false;
-  let mode = 'timer';
+  let mode = 'media';
   let intervalMs = 10000;
   let armedOrigin = null;
   let timerId = null;
