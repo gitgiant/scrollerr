@@ -1,4 +1,4 @@
-# Drip Scroller
+#Scrollerr
 
 Firefox extension that scrolls the current tab down by three wheel notches (~300px)
 every N seconds. Default 10. Built for slow feed-advance, not for reading along.
